@@ -1,0 +1,11 @@
+# director
+node_modules
+mock
+config
+public
+src/.umi
+src/e2e
+
+
+# files
+.eslintrc.js
