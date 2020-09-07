@@ -1,29 +1,26 @@
-import React, { useState } from 'react'
-import { hot } from 'react-hot-loader/root'
-import Router from '@/router/routes'
-import BasicLayout from '@/layout/BasicLayout'
-import ErrorCatcher from '@/components/ErrorCatcher'
-// import ErrorCatcher from '../dist/index'
-import ErrorResult from './ErrorResult'
-import { ErrorInfo } from '@/components/ErrorCatcher/data.d'
-import './App.less'
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [errorInfo, setErrorInfo] = useState<ErrorInfo>()
   return (
-    <BasicLayout>
-      <ErrorCatcher
-        app="react-error-catcher"
-        user="Y-lonelY"
-        errorRender={<ErrorResult info={errorInfo} />}
-        fetch={(error) => {
-          setErrorInfo(error)
-        }}
-      >
-        <Router />
-      </ErrorCatcher>
-    </BasicLayout>
-  )
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
-export default hot(App)
+export default App;
