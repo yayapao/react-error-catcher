@@ -8610,17 +8610,14 @@ react-dom@^16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
-react-error-catcher@^1.0.2:
+"react-error-catcher@file:../":
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-error-catcher/-/react-error-catcher-1.0.2.tgz#aa3aff25ce84e50e08c24bd5cb2b0e8374a49ab9"
-  integrity sha512-K9mX2F4M4Ak0sw875A/hmsO9BzDezdVmhk2Bjy0CcmUGMIEdWfPmRpIjSTNiEpHtZKU5+9Fk1RvCQ2rp3IsMRg==
   dependencies:
     "@testing-library/jest-dom" "^4.2.4"
     "@testing-library/react" "^9.3.2"
     "@testing-library/user-event" "^7.1.2"
     "@types/jest" "^24.0.0"
     "@types/node" "^12.0.0"
-    "@types/react" "^16.9.0"
     "@types/react-dom" "^16.9.0"
     react "^16.13.1"
     react-dom "^16.13.1"

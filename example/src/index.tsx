@@ -9,7 +9,9 @@ console.log(ErrorCatcher)
 
 ReactDOM.render(
   <React.StrictMode>
-    <ErrorCatcher />
+    <ErrorCatcher>
+      <App />
+    </ErrorCatcher>
   </React.StrictMode>,
   document.getElementById('root')
 )

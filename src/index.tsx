@@ -1,7 +1,11 @@
 import React from 'react'
 
-class ReactErrorCatcher extends React.Component {
-  constructor(props) {
+interface ErrorBoundaryProps {
+  
+}
+
+class ReactErrorCatcher extends React.Component<ErrorBoundaryProps, {}> {
+  constructor(props: ErrorBoundaryProps) {
     super(props)
     this.state = {
       loading: true
@@ -13,6 +17,10 @@ class ReactErrorCatcher extends React.Component {
       loading: true
     })
     console.log('hello world')
+  }
+
+  render() {
+    return this.props.children
   }
 }
 

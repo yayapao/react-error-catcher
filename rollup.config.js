@@ -3,11 +3,11 @@ import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.tsx',
   output: {
     file: 'index.js',
-    format: 'cjs'
+    format: 'cjs',
   },
-  plugins: [resolve(), typescript(), commonjs()],
-  external: ["react"]
+  plugins: [typescript(), resolve(), commonjs()],
+  external: ["react", "react-dom"]
 }
