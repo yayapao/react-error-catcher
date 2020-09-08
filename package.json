@@ -24,10 +24,8 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "rollup -c",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "example": "cd example/ && yarn install && yarn start"
   },
   "eslintConfig": {
     "extends": "react-app"
