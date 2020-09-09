@@ -25,6 +25,8 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "build:dev": "npm run build && NODE_ENV=development",
+    "build:pro": "npm run build && NODE_ENV=production",
     "example": "cd example/ && yarn install && yarn start"
   },
   "eslintConfig": {

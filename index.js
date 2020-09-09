@@ -44,6 +44,9 @@ var ErrorBoundary = /** @class */ (function (_super) {
                 app: _this.props.app || "unkonwn app",
                 user: _this.props.user || "unkonwn user",
             });
+            if (process.env.NODE_ENV === 'development') {
+                console.table(obj);
+            }
             _this.props.onCatch && _this.props.onCatch(obj);
         };
         _this.state = {

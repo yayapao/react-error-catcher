@@ -165,6 +165,9 @@ class ErrorBoundary extends React.Component<
       app: this.props.app || "unkonwn app",
       user: this.props.user || "unkonwn user",
     })
+    if (process.env.NODE_ENV === 'development') {
+      console.table(obj)
+    }
     this.props.onCatch && this.props.onCatch(obj)
   }
 
