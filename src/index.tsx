@@ -1,50 +1,11 @@
 import React from 'react'
-
-interface ErrorInfo {
-  app?: string
-  // "onerror" | "onunhandledrejection" | "componentDidCatch"
-  caughtEvent?: string
-  user?: string
-  message?: string
-  // window.performance.timeOrigin 时间戳
-  timeOrigin?: number | string
-  // at filepath lineno:colno
-  stack?: string
-  // event.type 事件类型
-  type?: string
-  // event.isTrusted 事件触发来源
-  isTrusted?: boolean
-  // 是否启用 cookie
-  cookieEnabled?: boolean
-  cookie?: string
-  userAgent?: string
-  href?: string
-  screenHeight?: number | string
-  screenWidth?: number | string
-}
-
-interface Error {
-  name: string;
-  message: string;
-  stack?: string;
-}
-
-interface ErrorBoundaryProps {
-  errorRender?: React.ReactNode
-  user?: string
-  app?: string | number
-  onCatch?: (error: ErrorInfo) => any
-}
-
-interface ErrorBoundaryState {
-  hasError: boolean
-}
+import { ErrorCatcherProps, ErrorCatcherState, ErrorInfo } from '../index.d'
 
 class ErrorBoundary extends React.Component<
-  ErrorBoundaryProps,
-  ErrorBoundaryState
+  ErrorCatcherProps,
+  ErrorCatcherState
 > {
-  constructor(props: ErrorBoundaryProps) {
+  constructor(props: ErrorCatcherProps) {
     super(props)
     this.state = {
       hasError: false,

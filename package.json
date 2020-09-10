@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "A powerful react error catcher!",
   "main": "index.js",
+  "types": "index.d.ts",
   "keywords": [
     "[\"react\"",
     "\"error\"",

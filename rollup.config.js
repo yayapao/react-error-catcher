@@ -7,6 +7,7 @@ export default {
   output: {
     file: 'index.js',
     format: 'cjs',
+    exports: "auto"
   },
   plugins: [typescript(), resolve(), commonjs()],
   external: ["react", "react-dom"]
