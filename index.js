@@ -47,6 +47,7 @@ var ErrorBoundary = /** @class */ (function (_super) {
             if (process.env.NODE_ENV === 'development') {
                 console.table(obj);
             }
+            // filter same errors
             _this.props.onCatch && _this.props.onCatch(obj);
         };
         _this.state = {

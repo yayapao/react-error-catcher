@@ -129,6 +129,7 @@ class ErrorBoundary extends React.Component<
     if (process.env.NODE_ENV === 'development') {
       console.table(obj)
     }
+    // filter same errors
     this.props.onCatch && this.props.onCatch(obj)
   }
 
