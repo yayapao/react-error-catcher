@@ -1,0 +1,26 @@
+{
+  "name": "react-error-catcher",
+  "version": "1.0.7",
+  "description": "A powerful react error catcher!",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": ["index.js"],
+  "keywords": [
+    "[\"react\"",
+    "\"error\"",
+    "\"catch\"]"
+  ],
+  "author": {
+    "name": "Y-lonelY",
+    "email": "luckyyoung666@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Y-lonelY/react-error-catcher/issues"
+  },
+  "homepage": "https://github.com/Y-lonelY/react-error-catcher#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Y-lonelY/react-error-catcher.git"
+  }
+}
