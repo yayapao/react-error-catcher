@@ -3,12 +3,21 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-// import ErrorCatcher from 'react-error-catcher'
-import ErrorCatcher from './develop'
+import ErrorCatcher from 'react-error-catcher'
+// import ErrorCatcher from './develop'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ErrorCatcher>
+    <ErrorCatcher
+      app="react-catcher"
+      user="Y-lonelY"
+      delay={5000}
+      max={1}
+      filters={["Uncaught Error: test"]}
+      onCatch={(errors) => {
+        console.log('catched', errors)
+      }}
+    >
       <App />
     </ErrorCatcher>
   </React.StrictMode>,

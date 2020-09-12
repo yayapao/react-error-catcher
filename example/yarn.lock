@@ -8611,7 +8611,7 @@ react-dom@^16.13.1:
     scheduler "^0.19.1"
 
 "react-error-catcher@file:..":
-  version "1.0.2"
+  version "1.0.6"
   dependencies:
     "@testing-library/jest-dom" "^4.2.4"
     "@testing-library/react" "^9.3.2"
@@ -8624,6 +8624,9 @@ react-dom@^16.13.1:
     react-scripts "3.4.3"
     tslib "^2.0.1"
     typescript "~3.7.2"
+
+"react-error-catcher@file:../npm":
+  version "1.0.6"
 
 react-error-overlay@^6.0.7:
   version "6.0.7"
