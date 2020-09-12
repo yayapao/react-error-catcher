@@ -1,38 +1,35 @@
 English | [简体中文](./README.zh-CN.md)
 
-# FE-TEMPLATE
+# React Error Catcher 🍑
 
-This is a fe-template **React** project based on [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) and [antd](https://ant.design/docs/react/introduce-cn)
+This is a powerful **React** error catcher!
 
-## Attention Point
+It can catch these below:
+- React component render error, use [Error Bounary](https://zh-hans.reactjs.org/docs/error-boundaries.html)
+- Event error, use [onError](https://developer.mozilla.org/zh-CN/docs/Web/API/ErrorEvent)
+- Promise error, use [PromiseRejectionEvent](https://developer.mozilla.org/zh-CN/docs/Web/API/PromiseRejectionEvent)
 
-1. In `.prettierrc` set `{ "endOfLine": "auto" }` to solve **Delete \`cr\` eslint(prettier/prettier)**
+When error catched, you will get a list of errors by **onCatch** event
 
-2. `config-overrides.js` use to override config of create react app，you can see to learn more on [react-app-rewired](https://github.com/timarney/react-app-rewired/)
+As we all konw, sometime errors can be too much to handle, so i filter the mutiple errors, also i support the **filters** for you to define which error can be ignored
 
-3. you need to config `src/typing.d.ts` to declare global moduels, which will be compile by ts
+## Props
+
+|properity｜description｜type｜default｜
+|:---|:---|:---|:---|
+|errorRender|when an error occurs in component rendering, which to display|React.ReactNode|<h1>Something went wrong.</h1>|
+|user|who cause the error|string|"unkonwn user"|
+|app|error occurs in which app|string|"unkonwn app"|
+|max|when the catched errors exceeds the max value, will trigger the callback method|number|1|
+|delay|report error interval, unit is millisecond|number|60000|
+|filters|define the errors which can be ignored|string[]|-|
+|onCatch|callback when catching errors and achieving the trigger cases|(error: ErrorInfo[]) => any|-|
+
+## About
+
+If you want to develop a npm library, you can see [npm-template](https://github.com/Y-lonelY/npm-template), welecome to star and fork!
 
 
-
-### About override the webpack config 
-
-In fact, I have tried many ways to do this job, emmm, someone looks can not do the job perfectly!
-
-Then, why not [Craco](https://github.com/gsoft-inc/craco)?
-
-It do the less-loader to config the theme looks good, but when config the webpack about `alias`, everything becomes terrible, you can see [this issue](https://github.com/risenforces/craco-alias/issues/1) for more messages!
-
-Fine, then i use [react-app-rewired](https://github.com/timarney/react-app-rewired) to overide the config, but it support the version of CRA below 2.0, so you should to add [customize-cra](https://github.com/arackaf/customize-cra) to support the CRA 2.0
-
-You can search [customize-cra-apis](https://github.com/arackaf/customize-cra/blob/master/api.md) to get what you need 🙉.
-
-In this **Template**, we use these below:
-- `yarn add less less-loader --dev` to support less file
-- `yarn add react-hot-loader` and `yarn add react-app-rewire-hot-loader --dev` to support the react-hot-loader, you can see (react-app-rewire-hot-loader)[https://github.com/cdharris/react-app-rewire-hot-loader] and (issues)[https://github.com/arackaf/customize-cra/issues/54] for some details
-
-Config `alisa` is more complicated, you need to create `paths.json` and config `config-overrides.js` and `tsconfig.json` to make it work!
-
-The key point is to config `{"extends": "./paths.json"}`, when compling, the compiler will remove the `paths`, so you need to use `extends` param to inherit from, you can see [extends](https://www.typescriptlang.org/tsconfig#extends) for details!
 
 
 

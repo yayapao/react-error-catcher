@@ -1,33 +1,31 @@
 简体中文 | [English](./README.md)
 
-# FE-TEMPLATE
+# React Error Catcher 🍑
 
-FE-TEMPLATE 是一个基于 [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) 和 [antd](https://ant.design/docs/react/introduce-cn) 的 React 项目
+这是一个强大 React 错误捕获组件！
 
-## 注意点
+它可以捕获如下错误:
+- React 组件渲染错误, 利用 [Error Bounary](https://zh-hans.reactjs.org/docs/error-boundaries.html)
+- 事件错误，利用 [onError](https://developer.mozilla.org/zh-CN/docs/Web/API/ErrorEvent)
+- 异步处理错误, 利用 [PromiseRejectionEvent](https://developer.mozilla.org/zh-CN/docs/Web/API/PromiseRejectionEvent)
 
-1. 在 `.prettierrc` 设置 `{ "endOfLine": "auto" }` 来解决 **Delete \`cr\` eslint(prettier/prettier)**
+当捕获到错误时，并且没有被过滤掉，会在 **onCatch** 内返回一个错误列表
 
-2. `config-overrides.js` 被用来重写 create react app 的相关配置，该项目没有使用 `npm run eject` 来暴露配置，你可以参考 [react-app-rewired](https://github.com/timarney/react-app-rewired/) 来了解更多信息
+众所周知，有时会触发太多重复的错误，因此我做了一部分工作用来过滤重复的相同错误，同时也支持通过 `filters` 属性来配置你需要过滤的错误
 
-3. 你需要配置 `src/typing.d.ts` 来声明全局模块，它会被 typescript 编译器识别
 
-### 重写 webpack 配置
+## Props
 
-事实上，对于在不使用 `npm run eject` 的前提下，我尝试了一些方法来达到牡蛎，但是并不是所有的开源方案都能够运行良好
+|属性｜描述｜类型｜默认值｜
+|:---|:---|:---|:---|
+|errorRender|当捕获到组件渲染错误时，降级渲染样式|React.ReactNode|<h1>Something went wrong.</h1>|
+|user|谁触发了错误|"unkonwn user"|
+|app|触发错误的 app|string|"unkonwn app"|
+|max|当捕获到的错误超过设置 max 值时，触发 `onCatch` 事件|number|1|
+|delay|设置错误上报周期|number|60000|
+|filters|定义需要过滤的错误|string[]|-|
+|onCatch|当满足设置条件时的错误捕获回调|(error: ErrorInfo[]) => any|-|
 
-所以，为什么不是 [Craco](https://github.com/gsoft-inc/craco)?
+## About
 
-它能够覆盖 `less-loader` 的主题配置等需求，但是当我想配置别名时，它并不能够很好地执行，你可以参考 [this issue](https://github.com/risenforces/craco-alias/issues/1) 获取更多信息！
-
-之后，我用 [react-app-rewired](https://github.com/timarney/react-app-rewired) 来覆盖配置，但是它对于 CRA 2.0 以下的版本支持比较好，所以我们需要使用 [customize-cra](https://github.com/arackaf/customize-cra) 来支持更高版本的 CRA
-
-你可以在 [customize-cra-apis](https://github.com/arackaf/customize-cra/blob/master/api.md) 内查找你需要的解决方案
-
-在这个项目内，我使用了以下这些：
-- `yarn add less less-loader --dev` 来解决 less 文件
-- `yarn add react-hot-loader` 和 `yarn add react-app-rewire-hot-loader --dev` 来支持 react-hot-loader, 你可以参考 (react-app-rewire-hot-loader)[https://github.com/cdharris/react-app-rewire-hot-loader] 和 (issues)[https://github.com/arackaf/customize-cra/issues/54] 了解更多细节
-
-配置 `alias` 显得更加复杂，你需要创建 `paths.json` 同时配置 `config-overrides.js` 和 `tsconfig.json` 来使其生效
-
-其关键点在于配置 `{"extends": "./paths.json"}`，当编译时，编译器会清楚 `paths` 的配置，你需要使用 `extends` 参数来使其进行继承，你可以参考 [extends](https://www.typescriptlang.org/tsconfig#extends) 来获取更多细节！
+如果你也想发布一个 npm 库, 你可以看看 [npm-template](https://github.com/Y-lonelY/npm-template), 欢迎 star 和 fork!
