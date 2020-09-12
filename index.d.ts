@@ -31,13 +31,18 @@ export interface Error {
 
 export interface ErrorCatcherState {
   hasError: boolean
+  maps: Map,
+  timer: any
 }
 
 export interface ErrorCatcherProps extends React.Props<ErrorCatcher> {
   errorRender?: React.ReactNode
   user?: string
   app?: string | number
-  onCatch?: (error: ErrorInfo) => any
+  onCatch?: (error: ErrorInfo[]) => any
+  max?: number
+  delay?: 5000
+  filters?: string[]
 }
 
 declare class ErrorCatcher extends React.Component<ErrorCatcherProps, ErrorCatcherState> {}
