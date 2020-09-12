@@ -16,15 +16,17 @@
 
 ## Props
 
-|属性｜描述｜类型｜默认值｜
+|属性|描述|类型|默认值|
 |:---|:---|:---|:---|
-|errorRender|当捕获到组件渲染错误时，降级渲染样式|React.ReactNode|<h1>Something went wrong.</h1>|
-|user|谁触发了错误|"unkonwn user"|
+|errorRender|当捕获到组件渲染错误时，降级渲染样式|React.ReactNode|\<h1>Something went wrong.\</h1>|
+|user|谁触发了错误|"unkonwn user"||
 |app|触发错误的 app|string|"unkonwn app"|
 |max|当捕获到的错误超过设置 max 值时，触发 `onCatch` 事件|number|1|
 |delay|设置错误上报周期|number|60000|
 |filters|定义需要过滤的错误|string[]|-|
 |onCatch|当满足设置条件时的错误捕获回调|(error: ErrorInfo[]) => any|-|
+
+
 
 ## About
 
