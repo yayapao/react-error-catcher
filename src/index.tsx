@@ -89,7 +89,6 @@ class ErrorBoundary extends React.Component<
     const { user, app, timeOrigin, caughtEvent } = error
     const label = `${app}-${user}-${timeOrigin}-${caughtEvent}`
     this.state.maps.set(label, error)
-    console.log(this.state.maps)
     // post by max
     // 1 means post immediately
     const max = this.props.max || 1
@@ -106,13 +105,8 @@ class ErrorBoundary extends React.Component<
           clearTimeout(this.state.timer)
           this.setState({ timer: null })
         }
-        console.log(this.state.maps)
-        console.log(this.state.maps.size)
         if (this.state.maps && this.state.maps.size > 0) {
           this.catchBack()
-        }
-        if (process.env.NODE_ENV === 'development') {
-          console.table("token active!")
         }
         this.setTimer(true)
       }, delay)
