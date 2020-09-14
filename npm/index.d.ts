@@ -41,7 +41,7 @@ export interface ErrorCatcherProps extends React.Props<ErrorCatcher> {
   app?: string | number
   onCatch?: (error: ErrorInfo[]) => any
   max?: number
-  delay?: 5000
+  delay?: number
   filters?: string[]
 }
 
