@@ -8610,10 +8610,10 @@ react-dom@^16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
-react-error-catcher@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-error-catcher/-/react-error-catcher-1.1.1.tgz#90892e4f64f90c899bfa5324a674ddd1725d4d9e"
-  integrity sha512-nL5Gd17OXuUMF0vTCncKew5Xe3aPVfuGNkThpaaKma47hR+aw0NG2cucylDhD4YRCrBNoRA22Qs1DnSzk9orTQ==
+react-error-catcher@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-error-catcher/-/react-error-catcher-1.1.2.tgz#5e5e483261e37cf1cad5a8957470589cae889101"
+  integrity sha512-YY4bNAX7bTgm+9ABQhxg3RNqxsK8YR/2mPAxyz+ngejG6FkTcHrO230iF/cONaezopfaYaxHtxF/6PWibbKlZw==
   dependencies:
     "@types/react-dom" "^16.9.0"
     typescript "~3.7.2"

@@ -43,13 +43,6 @@ function __extends(d, b) {
 
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
-function __spreadArrays() {
-  for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-
-  for (var r = Array(s), k = 0, i = 0; i < il; i++) for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) r[k] = a[j];
-
-  return r;
-}
 
 var ErrorBoundary = /** @class */ (function (_super) {
     __extends(ErrorBoundary, _super);
@@ -100,7 +93,7 @@ var ErrorBoundary = /** @class */ (function (_super) {
         };
         _this.catchBack = function () {
             try {
-                _this.props.onCatch && _this.props.onCatch(__spreadArrays(_this.state.maps.values()));
+                _this.props.onCatch && _this.props.onCatch(Array.from(_this.state.maps.values()));
                 // after callback the maps, then clear
                 _this.state.maps.clear();
             }
