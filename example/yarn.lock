@@ -8610,10 +8610,13 @@ react-dom@^16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
-react-error-catcher@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/react-error-catcher/-/react-error-catcher-1.0.8.tgz#d895f44b67a68aee096383f788f4820e245ce16a"
-  integrity sha512-2BzOBNxP5mgLB1M+aWsTF5nL17rMINZmRo8qy6u9eJR9rTovk9mmHuO6fEuHRqbDcrutSsLxahN40wExJ7yksQ==
+react-error-catcher@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-error-catcher/-/react-error-catcher-1.1.1.tgz#90892e4f64f90c899bfa5324a674ddd1725d4d9e"
+  integrity sha512-nL5Gd17OXuUMF0vTCncKew5Xe3aPVfuGNkThpaaKma47hR+aw0NG2cucylDhD4YRCrBNoRA22Qs1DnSzk9orTQ==
+  dependencies:
+    "@types/react-dom" "^16.9.0"
+    typescript "~3.7.2"
 
 react-error-overlay@^6.0.7:
   version "6.0.7"

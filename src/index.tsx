@@ -118,7 +118,7 @@ class ErrorBoundary extends React.Component<
 
   catchBack = () => {
     try {
-      this.props.onCatch && this.props.onCatch([...this.state.maps.values()])
+      this.props.onCatch && this.props.onCatch(Array.from(this.state.maps.values()))
       // after callback the maps, then clear
       this.state.maps.clear()
     } catch (error) {

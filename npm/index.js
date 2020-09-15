@@ -20,27 +20,35 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
-/* global Reflect, Promise */
 
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return extendStatics(d, b);
+/* global Reflect, Promise */
+var extendStatics = function (d, b) {
+  extendStatics = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (d, b) {
+    d.__proto__ = b;
+  } || function (d, b) {
+    for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+  };
+
+  return extendStatics(d, b);
 };
 
 function __extends(d, b) {
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
+  extendStatics(d, b);
 
+  function __() {
+    this.constructor = d;
+  }
+
+  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
 function __spreadArrays() {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
+  for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+
+  for (var r = Array(s), k = 0, i = 0; i < il; i++) for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) r[k] = a[j];
+
+  return r;
 }
 
 var ErrorBoundary = /** @class */ (function (_super) {
@@ -64,7 +72,6 @@ var ErrorBoundary = /** @class */ (function (_super) {
             var user = error.user, app = error.app, timeOrigin = error.timeOrigin, caughtEvent = error.caughtEvent;
             var label = app + "-" + user + "-" + timeOrigin + "-" + caughtEvent;
             _this.state.maps.set(label, error);
-            console.log(_this.state.maps);
             // post by max
             // 1 means post immediately
             var max = _this.props.max || 1;
@@ -80,13 +87,8 @@ var ErrorBoundary = /** @class */ (function (_super) {
                         clearTimeout(_this.state.timer);
                         _this.setState({ timer: null });
                     }
-                    console.log(_this.state.maps);
-                    console.log(_this.state.maps.size);
                     if (_this.state.maps && _this.state.maps.size > 0) {
                         _this.catchBack();
-                    }
-                    if (process.env.NODE_ENV === 'development') {
-                        console.table("token active!");
                     }
                     _this.setTimer(true);
                 }, delay);

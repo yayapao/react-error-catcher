@@ -32,10 +32,3 @@ As we all konw, sometime errors can be too much to handle, so i filter the mutip
 If you want to develop a npm library, you can see [npm-template](https://github.com/Y-lonelY/npm-template), welecome to star and fork!
 
 
-
-
-
-
-
-
-

@@ -13,9 +13,9 @@ ReactDOM.render(
       user="Y-lonelY"
       delay={5000}
       max={1}
-      filters={["Uncaught Error: test"]}
+      filters={[]}
       onCatch={(errors) => {
-        console.log('catched', errors)
+        console.log('catched')
       }}
     >
       <App />
