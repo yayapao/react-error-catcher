@@ -11,7 +11,39 @@
 
 当捕获到错误时，并且没有被过滤掉，会在 **onCatch** 内返回一个错误列表
 
-众所周知，有时会触发太多重复的错误，因此我做了一部分工作用来过滤重复的相同错误，同时也支持通过 `filters` 属性来配置你需要过滤的错误
+众所周知，有时会触发太多重复的错误，因此我做了一部分工作用来过滤重复的相同错误，同时也支持通过 `filters` 属性来配置你需要过滤的错误！
+
+
+
+### 使用
+
+执行 `npm install react-error-catcher` 或者 `yarn add react-error-catcher` 来进行引入
+
+紧接着在项目内：
+
+```javascript
+import ErrorCatcher from 'react-error-catcher'
+
+const App = () => {
+  return (
+  <ErrorCatcher
+      app="react-catcher"
+      user="Y-lonelY"
+      delay={5000}
+      max={1}
+      filters={[]}
+      onCatch={(errors) => {
+        console.log('catched')
+      }}
+    >
+      <Main />
+    </ErrorCatcher>)
+}
+
+export default App
+```
+
+
 
 
 ## Props

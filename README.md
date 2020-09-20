@@ -11,7 +11,29 @@ It can catch these below:
 
 When error catched, you will get a list of errors by **onCatch** event
 
-As we all konw, sometime errors can be too much to handle, so i filter the mutiple errors, also i support the **filters** for you to define which error can be ignored
+As we all konw, sometime errors can be too much to handle, so i filter the mutiple errors, also i support the **filters** for you to define which error can be ignored!
+
+
+
+### Install 
+
+Run `npm install react-error-catcher` or `yarn add react-error-catcher` to install it
+
+Then you can use it in your project like this:
+
+```javascript
+import ErrorCatcher from 'react-error-catcher'
+
+const App = () => {
+  return (<ErrorCatcher>
+    <Main />
+    </ErrorCatcher>)
+}
+
+export default App
+```
+
+
 
 ## Props
 
