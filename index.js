@@ -115,21 +115,20 @@ var ErrorBoundary = /** @class */ (function (_super) {
         _this.catchError = function (error) {
             error.stopPropagation();
             try {
-                var colno = error.colno, lineno = error.lineno, filename = error.filename, target = error.target, type = error.type, isTrusted = error.isTrusted, message = error.message;
-                var _a = target, performance_1 = _a.performance, clientInformation_1 = _a.clientInformation, location_1 = _a.location, screen_1 = _a.screen;
+                var colno = error.colno, lineno = error.lineno, filename = error.filename, type = error.type, isTrusted = error.isTrusted, message = error.message;
                 var obj = {
                     caughtEvent: 'onerror',
                     message: message,
-                    timeOrigin: performance_1.timeOrigin,
+                    timeOrigin: window.performance.timeOrigin,
                     stack: "Error: at " + filename + " " + lineno + ":" + colno,
                     type: type,
                     isTrusted: isTrusted,
-                    cookieEnabled: clientInformation_1.cookieEnabled,
+                    cookieEnabled: window.navigator.cookieEnabled,
                     cookie: document.cookie || '',
-                    userAgent: clientInformation_1.userAgent,
-                    href: location_1.href,
-                    screenHeight: screen_1.availHeight,
-                    screenWidth: screen_1.availWidth,
+                    userAgent: window.navigator.userAgent,
+                    href: window.location.href,
+                    screenHeight: window.screen.availHeight,
+                    screenWidth: window.screen.availWidth,
                 };
                 _this.postError(obj);
             }
@@ -139,22 +138,21 @@ var ErrorBoundary = /** @class */ (function (_super) {
         };
         _this.catchRejectEvent = function (error) {
             try {
-                var type = error.type, target = error.target, reason = error.reason, isTrusted = error.isTrusted;
+                var type = error.type, reason = error.reason, isTrusted = error.isTrusted;
                 var _a = reason, message = _a.message, stack = _a.stack;
-                var _b = target, performance_2 = _b.performance, clientInformation_2 = _b.clientInformation, location_2 = _b.location, screen_2 = _b.screen;
                 var obj = {
                     caughtEvent: 'onunhandledrejection',
                     message: message,
-                    timeOrigin: performance_2.timeOrigin,
+                    timeOrigin: window.performance.timeOrigin,
                     stack: stack,
                     type: type,
                     isTrusted: isTrusted,
-                    cookieEnabled: clientInformation_2.cookieEnabled,
+                    cookieEnabled: window.navigator.cookieEnabled,
                     cookie: document.cookie || '',
-                    userAgent: clientInformation_2.userAgent,
-                    href: location_2.href,
-                    screenHeight: screen_2.availHeight,
-                    screenWidth: screen_2.availWidth,
+                    userAgent: window.navigator.userAgent,
+                    href: window.location.href,
+                    screenHeight: window.screen.availHeight,
+                    screenWidth: window.screen.availWidth,
                 };
                 _this.postError(obj);
             }
@@ -194,9 +192,9 @@ var ErrorBoundary = /** @class */ (function (_super) {
                 stack: info.componentStack,
                 type: error.name,
                 isTrusted: true,
-                cookieEnabled: window.clientInformation.cookieEnabled,
+                cookieEnabled: window.navigator.cookieEnabled,
                 cookie: document.cookie || '',
-                userAgent: window.clientInformation.userAgent,
+                userAgent: window.navigator.userAgent,
                 href: window.location.href,
                 screenHeight: window.screen.availHeight,
                 screenWidth: window.screen.availWidth,

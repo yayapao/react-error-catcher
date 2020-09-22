@@ -35,8 +35,6 @@ export default App
 
 
 
-
-
 ## Props
 
 | properity   | description                                                  | type                        | default                         |

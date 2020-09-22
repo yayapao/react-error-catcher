@@ -40,9 +40,9 @@ class ErrorBoundary extends React.Component<
         stack: info.componentStack,
         type: error.name,
         isTrusted: true,
-        cookieEnabled: window.clientInformation.cookieEnabled,
+        cookieEnabled: window.navigator.cookieEnabled,
         cookie: document.cookie || '',
-        userAgent: window.clientInformation.userAgent,
+        userAgent: window.navigator.userAgent,
         href: window.location.href,
         screenHeight: window.screen.availHeight,
         screenWidth: window.screen.availWidth,
@@ -145,30 +145,23 @@ class ErrorBoundary extends React.Component<
         colno,
         lineno,
         filename,
-        target,
         type,
         isTrusted,
         message,
       } = error
-      const {
-        performance,
-        clientInformation,
-        location,
-        screen,
-      } = target as Window
       const obj = {
         caughtEvent: 'onerror',
         message: message,
-        timeOrigin: performance.timeOrigin,
+        timeOrigin: window.performance.timeOrigin,
         stack: `Error: at ${filename} ${lineno}:${colno}`,
         type: type,
         isTrusted: isTrusted,
-        cookieEnabled: clientInformation.cookieEnabled,
+        cookieEnabled: window.navigator.cookieEnabled,
         cookie: document.cookie || '',
-        userAgent: clientInformation.userAgent,
-        href: location.href,
-        screenHeight: screen.availHeight,
-        screenWidth: screen.availWidth,
+        userAgent: window.navigator.userAgent,
+        href: window.location.href,
+        screenHeight: window.screen.availHeight,
+        screenWidth: window.screen.availWidth,
       }
       this.postError(obj)
     } catch (error) {
@@ -178,27 +171,21 @@ class ErrorBoundary extends React.Component<
 
   catchRejectEvent = (error: PromiseRejectionEvent) => {
     try {
-      const { type, target, reason, isTrusted } = error
+      const { type, reason, isTrusted } = error
       const { message, stack } = reason as Error
-      const {
-        performance,
-        clientInformation,
-        location,
-        screen,
-      } = target as Window
       const obj = {
         caughtEvent: 'onunhandledrejection',
         message: message,
-        timeOrigin: performance.timeOrigin,
+        timeOrigin: window.performance.timeOrigin,
         stack: stack,
         type: type,
         isTrusted: isTrusted,
-        cookieEnabled: clientInformation.cookieEnabled,
+        cookieEnabled: window.navigator.cookieEnabled,
         cookie: document.cookie || '',
-        userAgent: clientInformation.userAgent,
-        href: location.href,
-        screenHeight: screen.availHeight,
-        screenWidth: screen.availWidth,
+        userAgent: window.navigator.userAgent,
+        href: window.location.href,
+        screenHeight: window.screen.availHeight,
+        screenWidth: window.screen.availWidth,
       }
       this.postError(obj)
     } catch (error) {
