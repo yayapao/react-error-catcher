@@ -5,6 +5,7 @@ English | [简体中文](./README.zh-CN.md)
 This is a powerful **React** error catcher!
 
 It can catch these below:
+
 - React component render error, use [Error Bounary](https://zh-hans.reactjs.org/docs/error-boundaries.html)
 - Event error, use [onError](https://developer.mozilla.org/zh-CN/docs/Web/API/ErrorEvent)
 - Promise error, use [PromiseRejectionEvent](https://developer.mozilla.org/zh-CN/docs/Web/API/PromiseRejectionEvent)
@@ -13,9 +14,7 @@ When error catched, you will get a list of errors by **onCatch** event
 
 As we all konw, sometime errors can be too much to handle, so i filter the mutiple errors, also i support the **filters** for you to define which error can be ignored!
 
-
-
-### Install 
+### Install
 
 Run `npm install react-error-catcher` or `yarn add react-error-catcher` to install it
 
@@ -25,32 +24,40 @@ Then you can use it in your project like this:
 import ErrorCatcher from 'react-error-catcher'
 
 const App = () => {
-  return (<ErrorCatcher>
-    <Main />
-    </ErrorCatcher>)
+  return (
+    <ErrorCatcher
+      app="react-error-catcher"
+      user="ylonely"
+      max={5}
+      delay={60 * 1000}
+      filters={[
+        'ResizeObserver loop limit exceeded',
+        'ResizeObserver loop completed with undelivered notifications.',
+      ]}
+      onCatch={(errors) => {
+        console.log(errors)
+      }}
+    >
+      <Main />
+    </ErrorCatcher>
+  )
 }
 
 export default App
 ```
 
-
-
 ## Props
 
-| properity   | description                                                  | type                        | default                         |
-| ----------- | ------------------------------------------------------------ | --------------------------- | ------------------------------- |
+| properity   | description                                                                                | type                        | default                         |
+| ----------- | ------------------------------------------------------------------------------------------ | --------------------------- | ------------------------------- |
 | errorRender | when an error occurs in component rendering, decide which lower layer component to display | React.ReactNode             | \<h1>Something went wrong\</h1> |
-| user        | who cause the error                                          | string                      | "unkonwn user"                  |
-| app         | error occurs in which app                                    | string                      | "unkonwn app"                   |
-| max         | when the catched errors exceeds the max value,  trigger the callback method | number                      | 1                               |
-| delay       | report error interval, unit is millisecond                   | number                      | 60000                           |
-| filters     | define the errors which can be ignored                       | string[]                    | -                               |
-| onCatch     | callback when catching errors and achieving the trigger cases | (error: ErrorInfo[]) => any | -                               |
-
-
+| user        | who cause the error                                                                        | string                      | "unkonwn user"                  |
+| app         | error occurs in which app                                                                  | string                      | "unkonwn app"                   |
+| max         | when the catched errors exceeds the max value, trigger the callback method                 | number                      | 1                               |
+| delay       | report error interval, unit is millisecond                                                 | number                      | 60000                           |
+| filters     | define the errors which can be ignored                                                     | string[]                    | -                               |
+| onCatch     | callback when catching errors and achieving the trigger cases                              | (error: ErrorInfo[]) => any | -                               |
 
 ## About
 
 If you want to develop a npm library, you can see [npm-template](https://github.com/Y-lonelY/npm-template), welecome to star and fork!
-
-
