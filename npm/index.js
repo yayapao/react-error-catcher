@@ -35,6 +35,7 @@ var extendStatics = function (d, b) {
 };
 
 function __extends(d, b) {
+  if (typeof b !== "function" && b !== null) throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
   extendStatics(d, b);
 
   function __() {
@@ -75,11 +76,14 @@ var ErrorBoundary = /** @class */ (function (_super) {
         _this.setTimer = function (label) {
             if (label) {
                 var delay = _this.props.delay || 1000 * 60;
-                setTimeout(function () {
+                var crt_1 = setTimeout(function () {
                     if (_this.state.timer) {
                         clearTimeout(_this.state.timer);
                         _this.setState({ timer: null });
                     }
+                    _this.setState({
+                        timer: crt_1
+                    });
                     if (_this.state.maps && _this.state.maps.size > 0) {
                         _this.catchBack();
                     }

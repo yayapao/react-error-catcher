@@ -2,10 +2,10 @@
   "name": "react-error-catcher",
   "version": "1.1.0",
   "description": "A powerful react error catcher!",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "npm/index.js",
+  "types": "npm/index.d.ts",
   "files": [
-    "index.js"
+    "npm/*"
   ],
   "keywords": [
     "[\"react\"",
@@ -25,24 +25,10 @@
     "type": "git",
     "url": "git+https://github.com/Y-lonelY/react-error-catcher.git"
   },
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "tslib": "^2.0.1",
-    "typescript": "~3.7.2"
-  },
+  "dependencies": {},
   "scripts": {
     "build": "rollup -c && bash control.sh build",
-    "build:dev": "npm run build && NODE_ENV=development",
-    "build:pro": "npm run build && NODE_ENV=production",
-    "example": "cd example/ && yarn install && yarn start"
+    "example": "cd example/ && yarn && yarn start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -64,6 +50,17 @@
     "@rollup/plugin-commonjs": "^15.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-typescript": "^5.0.2",
-    "@types/react": "^16.9.49"
+    "@types/react": "^16.9.49",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react-dom": "^16.9.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "tslib": "^2.0.1",
+    "typescript": "~3.7.2"
   }
 }
