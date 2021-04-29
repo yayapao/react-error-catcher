@@ -100,11 +100,14 @@ class ErrorBoundary extends React.Component<
   setTimer = (label: boolean) => {
     if (label) {
       const delay = this.props.delay || 1000 * 60
-      setTimeout(() => {
+      const crt = setTimeout(() => {
         if (this.state.timer) {
           clearTimeout(this.state.timer)
           this.setState({ timer: null })
         }
+        this.setState({
+          timer: crt
+        })
         if (this.state.maps && this.state.maps.size > 0) {
           this.catchBack()
         }
